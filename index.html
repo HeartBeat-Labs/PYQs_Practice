@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PYQs Practice</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- ==================== MAIN MENU VIEW ==================== -->
+    <section id="menu-view" class="view active">
+      <header class="menu-header">
+        <h1 class="main-title">PYQs Practice</h1>
+        <p class="subtitle">Select a Day to start or continue your practice</p>
+      </header>
+
+      <div id="loading-indicator" class="loading-box">
+        Loading questions...
+      </div>
+
+      <div id="days-grid" class="days-grid" aria-label="Day selection grid">
+        <!-- Day cards are dynamically injected here by app.js -->
+      </div>
+    </section>
+
+    <!-- ==================== QUIZ VIEW ==================== -->
+    <section id="quiz-view" class="view hidden">
+      <header class="quiz-topbar">
+        <button id="back-to-menu-btn" class="btn btn-secondary" type="button">
+          &larr; Menu
+        </button>
+
+        <div class="quiz-meta">
+          <span id="current-day-label" class="day-badge">Day 1</span>
+          <span id="question-counter" class="counter-badge">1 / 300</span>
+        </div>
+
+        <div class="score-badge" id="score-display">
+          Score: 0
+        </div>
+      </header>
+
+      <div class="progress-track">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+
+      <main class="quiz-card">
+        <div id="review-banner" class="review-banner hidden">
+          Review Mode &mdash; Viewing your completed attempt
+        </div>
+
+        <div id="question-text" class="question-text">
+          <!-- Question text injected here -->
+        </div>
+
+        <div id="options-container" class="options-container" role="radiogroup">
+          <!-- Shuffled option buttons injected here -->
+        </div>
+      </main>
+
+      <footer class="quiz-controls">
+        <button id="prev-btn" class="btn btn-nav" type="button" disabled>
+          &larr; Previous
+        </button>
+        <button id="next-btn" class="btn btn-primary" type="button" disabled>
+          Next &rarr;
+        </button>
+      </footer>
+    </section>
+  </div>
+
+  <!-- ==================== RESUME / RESTART / REVIEW / RESULT DIALOG ==================== -->
+  <div id="action-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <h2 id="modal-title" class="modal-title">Day 1</h2>
+      <p id="modal-message" class="modal-message">
+        You have saved progress for this quiz.
+      </p>
+      <div id="modal-actions" class="modal-actions">
+        <!-- Action buttons injected dynamically -->
+      </div>
+      <button id="modal-cancel-btn" class="modal-close-link" type="button">
+        Cancel
+      </button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
